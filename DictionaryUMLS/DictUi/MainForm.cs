@@ -18,10 +18,6 @@ namespace DictUi
         {
             InitializeComponent();
             _dict = new Dict();
-            //List<string> AllDiseasesUMLS = _dict.AllDiseasesUMLS;
-            //List<string> AllSymptomsUMLS = _dict.AllSymptomsUMLS;
-            //List<string> AllDiseasesEng = _dict.AllDiseasesEng;
-            //List<string> AllSymptomsEng = _dict.AllSymptomsEng;
             DiseasesUmlsComboBox.DataSource = _dict.AllDiseasesUMLS;
             SymptomsUmlsComboBox.DataSource = _dict.AllSymptomsUMLS;
             DiseasesEngComboBox.DataSource = _dict.AllDiseasesEng;
