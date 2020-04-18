@@ -1,0 +1,8 @@
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\bin\Debug\DictionaryUMLS.dll
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\bin\Debug\DictionaryUMLS.pdb
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\obj\Debug\DictionaryUMLS.csproj.CoreCompileInputs.cache
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\obj\Debug\DictionaryUMLS.dll
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\obj\Debug\DictionaryUMLS.pdb
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\bin\Debug\Resources\symptoms.csv
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\bin\Debug\Resources\diseases.csv
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\obj\Debug\DictionaryUMLS.csprojAssemblyReference.cache

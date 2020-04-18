@@ -1,0 +1,15 @@
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\bin\Debug\DictUi.exe.config
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\bin\Debug\DictUi.exe
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\bin\Debug\DictUi.pdb
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\bin\Debug\DictionaryUMLS.dll
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\bin\Debug\DictionaryUMLS.pdb
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\obj\Debug\DictUi.csprojAssemblyReference.cache
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\obj\Debug\DictUi.Properties.Resources.resources
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\obj\Debug\DictUi.csproj.GenerateResource.cache
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\obj\Debug\DictUi.csproj.CoreCompileInputs.cache
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\obj\Debug\DictUi.csproj.CopyComplete
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\obj\Debug\DictUi.exe
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\obj\Debug\DictUi.pdb
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\bin\Debug\Resources\symptoms.csv
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\bin\Debug\Resources\diseases.csv
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictUi\obj\Debug\DictUi.Dictoinary.resources
