@@ -1,7 +1,12 @@
 # Use Python 3.6.* !
 # TensorFlow and tf.keras
 import tensorflow as tf
-from tensorflow import keras
+#from tensorflow import keras
+import plaidml.keras
+import os
+plaidml.keras.install_backend()
+os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
+import keras
 
 # Secondary libraries
 from termcolor import colored
@@ -10,13 +15,12 @@ import matplotlib.pyplot as plt
 from sklearn import datasets, linear_model
 import numpy as np
 import pandas as pd
-from keras.utils import plot_model
 from keras.datasets import mnist
 from itertools import groupby
 import collections
 from keras import utils
 from sklearn.preprocessing import MultiLabelBinarizer
-from keras.callbacks.callbacks import CSVLogger
+from keras.callbacks import CSVLogger, EarlyStopping
 
 # Program
 print("\n\n\n********************** Start of main program **********************")
@@ -58,7 +62,7 @@ pd.DataFrame(Y_train).to_csv("Y.csv")
 
 model = keras.Sequential([
     keras.layers.Dense(800, input_dim=SymptomsCount, activation="relu"),
-    keras.layers.Dense(500, input_dim=SymptomsCount, activation="relu"),
+    keras.layers.Dense(500, activation="relu"),
     keras.layers.Dense(DiseasesCount, activation="softmax"),
 ])
 
@@ -84,3 +88,7 @@ print("\nPredictions:", end='')
 predictions = model.predict(X_train)
 pd.DataFrame(predictions).to_csv("predictions.csv")
 print(predictions)
+
+#Saving model
+model.save('my_model.h5')
+new_model = keras.models.load_model('my_model.h5')
