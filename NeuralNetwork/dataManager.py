@@ -9,7 +9,9 @@ def LoadData(path):
 
 def CountSymptoms(dataset):
     AllSymptoms = dataset.values[:, 1]
-    AllSymptoms = list(dict.fromkeys(AllSymptoms))
+    #AllSymptoms = list(dict.fromkeys(AllSymptoms))
+    #SymptomsCount = len(AllSymptoms)
+    AllSymptoms = np.unique(AllSymptoms)
     SymptomsCount = len(AllSymptoms)
     return SymptomsCount
 

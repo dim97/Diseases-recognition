@@ -24,8 +24,11 @@ from keras.callbacks import CSVLogger, EarlyStopping
 from math import ceil
 
 # Custom libraries
-import dataManager, callbackExtension
+import dataManager as dm
+import callbackExtension
 import interfaceManager as im
+import diseasesGenerator as dg
+import sklearn
 
 # Variables and values
 dataSetName = "disease_symptoms_DataSet.csv"
@@ -35,17 +38,17 @@ desiredAcc = 0.9 # Default value
 # Program
 # Case when user wants to create and train new model
 def TrainNewModel():
-    RawDataset = dataManager.LoadData(dataSetName)
-    SymptomsCount = dataManager.CountSymptoms(RawDataset)
-    DiseasesCount = dataManager.CountDiseases(RawDataset)
+    RawDataset = dm.LoadData(dataSetName)
+    SymptomsCount = dm.CountSymptoms(RawDataset)
+    DiseasesCount = dm.CountDiseases(RawDataset)
 
     # Group symptoms by diseases
-    GroupedDataset = dataManager.GroupByDiseases(RawDataset)
+    GroupedDataset = dm.GroupByDiseases(RawDataset)
 
     # Splitting data
-    (X, Y) = dataManager.SplitData(GroupedDataset)  # X-Symptoms, Y-Diseases
-    X_train = dataManager.SymptomsToCategorical(X)
-    Y_train = dataManager.DiseasesToCategorical(Y)
+    (X, Y) = dm.SplitData(GroupedDataset)  # X-Symptoms, Y-Diseases
+    X_train = dm.SymptomsToCategorical(X)
+    Y_train = dm.DiseasesToCategorical(Y)
     X_test = X_train
     Y_test = Y_train
 
@@ -82,19 +85,71 @@ def TrainNewModel():
         callbacks=[csv_logger, stop_criteria]
     )
 
+    print("\nResults on original set:")
     results = model.evaluate(X_test, Y_test, batch_size=128)
     print('test loss, test acc:', results)
 
-    print("\nPredictions:", end='')
+    GeneratedDataset = dg.ExtendDataset(GroupedDataset) 
+    (X, Y) = dm.SplitData(GeneratedDataset)  # X-Symptoms, Y-Diseases
+    XTestGen = dm.SymptomsToCategorical(X)
+    YTestGen = dm.DiseasesToCategorical(Y)
+
+    print("\nResults on generated set:")
+    resultsOnGeneratedSet = model.evaluate(XTestGen, YTestGen, batch_size=128)
+    print('test loss, test acc:', resultsOnGeneratedSet)
+
+    #print("\nPredictions:", end='')
     predictions = model.predict(X_train)
-    pd.DataFrame(predictions).to_csv("predictions.csv")
-    print(predictions)
+    pd.DataFrame(predictions).to_csv("predictions_pre-trained.csv")
+    #print(predictions)
+
     #Saving model
-    model.save("Models/pre-trained_model(acc="+ str(round(results[1],4)) +").h5")
+    model.save("Models/pre-trained_model(acc="+ str(round(resultsOnGeneratedSet[1],4))+ ";"+str(round(results[1],4)) +").h5")
 
 # Case when user wants to continue training existing model
-def TrainExistingModel():
-    print("NOT IMPLEMENTED YET")
+def TrainExistingModel(pathToModel):
+    RawDataset = dm.LoadData(dataSetName)
+    SymptomsCount = dm.CountSymptoms(RawDataset)
+    DiseasesCount = dm.CountDiseases(RawDataset)
+    GroupedDataset = dm.GroupByDiseases(RawDataset)
+    GeneratedDataset = dg.ExtendDataset(GroupedDataset) 
+
+    (XOriginal, YOriginal) = dm.SplitData(GroupedDataset) 
+    XTestOriginal = dm.SymptomsToCategorical(XOriginal)
+    YTestOriginal = dm.DiseasesToCategorical(YOriginal)
+    # Splitting data
+    (X, Y) = dm.SplitData(GeneratedDataset)  # X-Symptoms, Y-Diseases
+    X = dm.SymptomsToCategorical(X)
+    Y = dm.DiseasesToCategorical(Y)
+
+    X_train, X_test, Y_train, Y_test = sklearn.model_selection.train_test_split(X,Y,test_size=0.1,shuffle=True)
+
+    pd.DataFrame(X_train).to_csv("X_generated.csv") # save to .csv
+    pd.DataFrame(Y_train).to_csv("Y_generated.csv") # save to .csv
+
+    csv_logger = CSVLogger('log.csv', append=True, separator=';')
+    stop_criteria = callbackExtension.TerminateOnBaseline(monitor='acc', baseline=desiredAcc)
+    model = keras.models.load_model(pathToModel)
+    model.fit(
+        X_train,
+        Y_train,
+        batch_size=DiseasesCount,
+        epochs=maxEpoch,
+        verbose=1,
+        callbacks=[csv_logger, stop_criteria])
+
+    print("\nResults on generated set:")
+    results = model.evaluate(X_test, Y_test, batch_size=128)
+    print('test loss, test acc:', results)
+
+    print("\nResults on original set:")
+    resultsOnOriginalSet = model.evaluate(XTestOriginal, YTestOriginal, batch_size=128)
+    print('test loss, test acc:', resultsOnOriginalSet)
+
+    predictions = model.predict(X_train)
+    pd.DataFrame(predictions).to_csv("predictions_full-trained.csv")
+
+    model.save("Models/full-trained_model(acc="+ str(round(results[1],4)) + ";"+str(round(resultsOnOriginalSet[1],4))+").h5")
 
 # Entry point of main program
 im.PrintDelimiter()
@@ -104,7 +159,11 @@ if workingMode == 1:
     desiredAcc = im.RequestAccuracy()
     TrainNewModel()
 if workingMode == 2:
-    TrainExistingModel()
+    modelName = im.RequestModelFile()
+    pathToModel = "Models/"+modelName
+    maxEpoch = im.RequestEpochLimit()
+    desiredAcc = im.RequestAccuracy()
+    TrainExistingModel(pathToModel)
 
 
 #Saving model

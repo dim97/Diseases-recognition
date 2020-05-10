@@ -1,4 +1,8 @@
 
+import os
+from pandas.core.computation.ops import isnumeric
+
+
 def PrintDelimiter():
     print("\n*******************************************************************")
 
@@ -24,3 +28,14 @@ def RequestEpochLimit():
     print("\nEnter epoch count maximum:")
     epMax = int(input())
     return epMax
+
+def RequestModelFile():
+    print("\nSelect model to load (type number of selected model):")
+    models = os.listdir('Models')
+    for i in range(len(models)):
+        print(str(i)+" - \"" + str(models[i])+"\"")
+    modelNumber = input()
+    if(not(modelNumber.isnumeric()) or int(modelNumber)<0 or int(modelNumber)>=len(models)):
+        print("Wrong input")
+        return RequestModelFile()
+    return models[int(modelNumber)]
