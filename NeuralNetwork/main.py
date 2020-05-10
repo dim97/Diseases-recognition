@@ -72,7 +72,7 @@ def TrainNewModel():
 
     csv_logger = CSVLogger('log.csv', append=True, separator=';')
     stop_criteria = callbackExtension.TerminateOnBaseline(monitor='acc', baseline=desiredAcc)
-    print("\nLearning start", end='')
+
     model.fit(
         X_train,
         Y_train,
@@ -82,11 +82,15 @@ def TrainNewModel():
         callbacks=[csv_logger, stop_criteria]
     )
 
-    print(colored("  - OK", 'green'))
+    results = model.evaluate(X_test, Y_test, batch_size=128)
+    print('test loss, test acc:', results)
+
     print("\nPredictions:", end='')
     predictions = model.predict(X_train)
     pd.DataFrame(predictions).to_csv("predictions.csv")
     print(predictions)
+    #Saving model
+    model.save("Models/pre-trained_model(acc="+ str(round(results[1],4)) +").h5")
 
 # Case when user wants to continue training existing model
 def TrainExistingModel():
