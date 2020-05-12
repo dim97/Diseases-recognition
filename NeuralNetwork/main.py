@@ -1,4 +1,4 @@
-# Use Python 3.6.* !
+# Use Python 3.6.* 
 # TensorFlow and tf.keras
 import tensorflow as tf
 #from tensorflow import keras
@@ -21,74 +21,154 @@ import collections
 from keras import utils
 from sklearn.preprocessing import MultiLabelBinarizer
 from keras.callbacks import CSVLogger, EarlyStopping
+from math import ceil
+
+# Custom libraries
+import dataManager as dm
+import callbackExtension
+import interfaceManager as im
+import diseasesGenerator as dg
+import sklearn
+
+# Variables and values
+dataSetName = "disease_symptoms_DataSet.csv"
+maxEpoch = 8000 # Default value
+desiredAcc = 0.9 # Default value
 
 # Program
-print("\n\n\n********************** Start of main program **********************")
-datasetName = "disease_symptoms_DataSet.csv"
-print("\nLoading data", end='')
-RawDataset = pd.read_csv(datasetName, sep=',')
-print(colored("  - OK", 'green'))
-#print("\nData examples (Head): ")
-#print ("        " + RawDataset.head())
-print("\nGetting all symptoms and diseases from dataset", end='')
-AllSymptoms = RawDataset.values[:, 1]
-AllSymptoms = list(dict.fromkeys(AllSymptoms))
-SymptomsCount = len(AllSymptoms)
-AllDiseases = RawDataset.values[:, 0]
-AllDiseases = list(dict.fromkeys(AllDiseases))
-DiseasesCount = len(AllDiseases)
-print(colored("  - OK", 'green'))
-#print("Symptoms : "+ str(SymptomsCount) + "   Diseases : "+ str(DiseasesCount))
+# Case when user wants to create and train new model
+def TrainNewModel():
+    RawDataset = dm.LoadData(dataSetName)
+    SymptomsCount = dm.CountSymptoms(RawDataset)
+    DiseasesCount = dm.CountDiseases(RawDataset)
 
-# Group symptoms by diseases
-DictDataset = collections.defaultdict(list)
-for item in RawDataset.values:
-    DictDataset[item[0]].append(item[1])
-GroupedDataset = np.array(list(DictDataset.items()))
+    # Group symptoms by diseases
+    GroupedDataset = dm.GroupByDiseases(RawDataset)
 
-# Splitting data
-(X, Y) = (GroupedDataset[:, 1], GroupedDataset[:, 0])  # X-Symptoms, Y-Diseases
-#X_train = pd.get_dummies(pd.Series(X).apply(pd.Series).stack()).sum(level=0)
-mlb = MultiLabelBinarizer()
-X_train = pd.DataFrame(mlb.fit_transform(
-    X), columns=mlb.classes_, index=pd.DataFrame(X).index)
-X_test = X_train
-# Diseases from UMLS to array of indexes [0,0,0,....,0,1,0,...]
-Y_train = pd.get_dummies(Y)
-Y_test = Y_train
+    # Splitting data
+    (X, Y) = dm.SplitData(GroupedDataset)  # X-Symptoms, Y-Diseases
+    X_train = dm.SymptomsToCategorical(X)
+    Y_train = dm.DiseasesToCategorical(Y)
+    X_test = X_train
+    Y_test = Y_train
 
-pd.DataFrame(X_train).to_csv("X.csv")
-pd.DataFrame(Y_train).to_csv("Y.csv")
+    pd.DataFrame(X_train).to_csv("X.csv") # save to .csv
+    pd.DataFrame(Y_train).to_csv("Y.csv") # save to .csv
 
-model = keras.Sequential([
-    keras.layers.Dense(800, input_dim=SymptomsCount, activation="relu"),
-    keras.layers.Dense(500, activation="relu"),
-    keras.layers.Dense(DiseasesCount, activation="softmax"),
-])
+    # Defining model
+    deltaOfInOut = abs(SymptomsCount-DiseasesCount)
+    avgOfInOut = ceil((abs(SymptomsCount+DiseasesCount)/2))
 
-model.compile(loss="categorical_crossentropy",
-              optimizer="SGD",
-              metrics=["accuracy"])
+    (firstLayerNeuronCount, secondLayerNeuronCount) = (ceil(avgOfInOut+deltaOfInOut/4),ceil(avgOfInOut-deltaOfInOut/4))
 
-print(model.summary())
+    model = keras.Sequential([
+        keras.layers.Dense(firstLayerNeuronCount, input_dim=SymptomsCount, activation="relu"),
+        keras.layers.Dense(secondLayerNeuronCount, activation="relu"),
+        keras.layers.Dense(DiseasesCount, activation="softmax"),
+    ])
 
-csv_logger = CSVLogger('log.csv', append=True, separator=';')
-print("\nLearning start", end='')
-model.fit(
-    X_train,
-    Y_train,
-    batch_size=DiseasesCount,
-    epochs=8000,
-    verbose=1,
-    callbacks=[csv_logger]
-)
+    model.compile(loss="categorical_crossentropy",
+                optimizer="SGD",
+                metrics=["accuracy"])
 
-print(colored("  - OK", 'green'))
-print("\nPredictions:", end='')
-predictions = model.predict(X_train)
-pd.DataFrame(predictions).to_csv("predictions.csv")
-print(predictions)
+    print(model.summary())
+
+    csv_logger = CSVLogger('log.csv', append=True, separator=';')
+    stop_criteria = callbackExtension.TerminateOnBaseline(monitor='acc', baseline=desiredAcc)
+
+    model.fit(
+        X_train,
+        Y_train,
+        batch_size=DiseasesCount,
+        epochs=maxEpoch,
+        verbose=1,
+        callbacks=[csv_logger, stop_criteria]
+    )
+
+    print("\nResults on original set:")
+    results = model.evaluate(X_test, Y_test, batch_size=128)
+    print('test loss, test acc:', results)
+
+    GeneratedDataset = dg.ExtendDataset(GroupedDataset) 
+    (X, Y) = dm.SplitData(GeneratedDataset)  # X-Symptoms, Y-Diseases
+    XTestGen = dm.SymptomsToCategorical(X)
+    YTestGen = dm.DiseasesToCategorical(Y)
+
+    print("\nResults on generated set:")
+    resultsOnGeneratedSet = model.evaluate(XTestGen, YTestGen, batch_size=128)
+    print('test loss, test acc:', resultsOnGeneratedSet)
+
+    #print("\nPredictions:", end='')
+    predictions = model.predict(X_train)
+    pd.DataFrame(predictions).to_csv("predictions_pre-trained.csv")
+    #print(predictions)
+
+    #Saving model
+    model.save("Models/pre-trained_model(acc="+ str(round(resultsOnGeneratedSet[1],4))+ ";"+str(round(results[1],4)) +").h5")
+
+# Case when user wants to continue training existing model
+def TrainExistingModel(pathToModel):
+    RawDataset = dm.LoadData(dataSetName)
+    SymptomsCount = dm.CountSymptoms(RawDataset)
+    DiseasesCount = dm.CountDiseases(RawDataset)
+    GroupedDataset = dm.GroupByDiseases(RawDataset)
+    GeneratedDataset = dg.ExtendDataset(GroupedDataset) 
+
+    (XOriginal, YOriginal) = dm.SplitData(GroupedDataset) 
+    XTestOriginal = dm.SymptomsToCategorical(XOriginal)
+    YTestOriginal = dm.DiseasesToCategorical(YOriginal)
+    # Splitting data
+    (X, Y) = dm.SplitData(GeneratedDataset)  # X-Symptoms, Y-Diseases
+    X = dm.SymptomsToCategorical(X)
+    Y = dm.DiseasesToCategorical(Y)
+
+    X_train, X_test, Y_train, Y_test = sklearn.model_selection.train_test_split(X,Y,test_size=0.1,shuffle=True)
+
+    pd.DataFrame(X_train).to_csv("X_generated.csv") # save to .csv
+    pd.DataFrame(Y_train).to_csv("Y_generated.csv") # save to .csv
+
+    csv_logger = CSVLogger('log.csv', append=True, separator=';')
+    stop_criteria = callbackExtension.TerminateOnBaseline(monitor='acc', baseline=desiredAcc)
+    model = keras.models.load_model(pathToModel)
+    model.fit(
+        X_train,
+        Y_train,
+        batch_size=DiseasesCount,
+        epochs=maxEpoch,
+        verbose=1,
+        callbacks=[csv_logger, stop_criteria])
+
+    print("\nResults on generated set:")
+    results = model.evaluate(X_test, Y_test, batch_size=128)
+    print('test loss, test acc:', results)
+
+    print("\nResults on original set:")
+    resultsOnOriginalSet = model.evaluate(XTestOriginal, YTestOriginal, batch_size=128)
+    print('test loss, test acc:', resultsOnOriginalSet)
+
+    predictions = model.predict(X_train)
+    pd.DataFrame(predictions).to_csv("predictions_full-trained.csv")
+
+    model.save("Models/full-trained_model(acc="+ str(round(results[1],4)) + ";"+str(round(resultsOnOriginalSet[1],4))+").h5")
+
+# Entry point of main program
+im.PrintDelimiter()
+workingMode = im.RequestWorkingMode()
+if workingMode == 1: 
+    maxEpoch = im.RequestEpochLimit()
+    desiredAcc = im.RequestAccuracy()
+    TrainNewModel()
+if workingMode == 2:
+    modelName = im.RequestModelFile()
+    pathToModel = "Models/"+modelName
+    maxEpoch = im.RequestEpochLimit()
+    desiredAcc = im.RequestAccuracy()
+    TrainExistingModel(pathToModel)
+
 
 #Saving model
-model.save('my_model.h5')
-new_model = keras.models.load_model('my_model.h5')
+#model.save('my_model.h5')
+#Loading model
+#new_model = keras.models.load_model('my_model.h5')
+
+
