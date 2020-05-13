@@ -1,9 +1,0 @@
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\RequestManager\bin\Debug\RequestManager.dll
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\RequestManager\bin\Debug\RequestManager.pdb
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\RequestManager\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\RequestManager\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\RequestManager\obj\Debug\RequestManager.csproj.CoreCompileInputs.cache
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\RequestManager\obj\Debug\RequestManager.csproj.CopyComplete
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\RequestManager\obj\Debug\RequestManager.dll
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\RequestManager\obj\Debug\RequestManager.pdb
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\RequestManager\obj\Debug\RequestManager.csprojAssemblyReference.cache
