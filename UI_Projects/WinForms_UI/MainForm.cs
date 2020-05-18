@@ -36,45 +36,50 @@ namespace WinForms_UI
         {
             List<string> symptoms = InputSymptoms;
             InputSymptoms = new List<string>();
-            List<(string, double)> resultToShow = dataManager.GetSortedPredictions(symptoms).Take(10).ToList();
+            var predictions = dataManager.GetSortedPredictions(symptoms);
 
-            Disease1Text.Text = resultToShow[0].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[0].Item1);
-            Disease2Text.Text = resultToShow[1].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[1].Item1);
-            Disease3Text.Text = resultToShow[2].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[2].Item1);
-            Disease4Text.Text = resultToShow[3].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[3].Item1);
-            Disease5Text.Text = resultToShow[4].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[4].Item1);
-            Disease6Text.Text = resultToShow[5].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[5].Item1);
-            Disease7Text.Text = resultToShow[6].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[6].Item1);
-            Disease8Text.Text = resultToShow[7].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[7].Item1);
-            Disease9Text.Text = resultToShow[8].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[8].Item1);
-            Disease10Text.Text = resultToShow[9].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[9].Item1);
+            if (predictions != null)
+            {
+                List<(string, double)> resultToShow = predictions.Take(10).ToList();
 
-            double maxPrediction = resultToShow.Max(x => x.Item2);
+                Disease1Text.Text = resultToShow[0].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[0].Item1);
+                Disease2Text.Text = resultToShow[1].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[1].Item1);
+                Disease3Text.Text = resultToShow[2].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[2].Item1);
+                Disease4Text.Text = resultToShow[3].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[3].Item1);
+                Disease5Text.Text = resultToShow[4].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[4].Item1);
+                Disease6Text.Text = resultToShow[5].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[5].Item1);
+                Disease7Text.Text = resultToShow[6].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[6].Item1);
+                Disease8Text.Text = resultToShow[7].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[7].Item1);
+                Disease9Text.Text = resultToShow[8].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[8].Item1);
+                Disease10Text.Text = resultToShow[9].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[9].Item1);
 
-            double proportion;
-            int confBarMaxWidth = ConfidenceBar1.Width;
-            proportion = resultToShow[0].Item2 / maxPrediction;
-            ConfidenceBar1.Width = (int)Math.Ceiling(ConfidenceBarBackground1.Width * proportion);
-            proportion = resultToShow[1].Item2 / maxPrediction;
-            ConfidenceBar2.Width = (int)Math.Ceiling(ConfidenceBarBackground2.Width * proportion);
-            proportion = resultToShow[2].Item2 / maxPrediction;
-            ConfidenceBar3.Width = (int)Math.Ceiling(ConfidenceBarBackground3.Width * proportion);
-            proportion = resultToShow[3].Item2 / maxPrediction;
-            ConfidenceBar4.Width = (int)Math.Ceiling(ConfidenceBarBackground4.Width * proportion);
-            proportion = resultToShow[4].Item2 / maxPrediction;
-            ConfidenceBar5.Width = (int)Math.Ceiling(ConfidenceBarBackground5.Width * proportion);
-            proportion = resultToShow[5].Item2 / maxPrediction;
-            ConfidenceBar6.Width = (int)Math.Ceiling(ConfidenceBarBackground6.Width * proportion);
-            proportion = resultToShow[6].Item2 / maxPrediction;
-            ConfidenceBar7.Width = (int)Math.Ceiling(ConfidenceBarBackground7.Width * proportion);
-            proportion = resultToShow[7].Item2 / maxPrediction;
-            ConfidenceBar8.Width = (int)Math.Ceiling(ConfidenceBarBackground8.Width * proportion);
-            proportion = resultToShow[8].Item2 / maxPrediction;
-            ConfidenceBar9.Width = (int)Math.Ceiling(ConfidenceBarBackground9.Width * proportion);
-            proportion = resultToShow[9].Item2 / maxPrediction;
-            ConfidenceBar10.Width = (int)Math.Ceiling(ConfidenceBarBackground10.Width * proportion);
+                double maxPrediction = resultToShow.Max(x => x.Item2);
 
-            MakeResultsVisible();
+                double proportion;
+                int confBarMaxWidth = ConfidenceBar1.Width;
+                proportion = resultToShow[0].Item2 / maxPrediction;
+                ConfidenceBar1.Width = (int)Math.Ceiling(ConfidenceBarBackground1.Width * proportion);
+                proportion = resultToShow[1].Item2 / maxPrediction;
+                ConfidenceBar2.Width = (int)Math.Ceiling(ConfidenceBarBackground2.Width * proportion);
+                proportion = resultToShow[2].Item2 / maxPrediction;
+                ConfidenceBar3.Width = (int)Math.Ceiling(ConfidenceBarBackground3.Width * proportion);
+                proportion = resultToShow[3].Item2 / maxPrediction;
+                ConfidenceBar4.Width = (int)Math.Ceiling(ConfidenceBarBackground4.Width * proportion);
+                proportion = resultToShow[4].Item2 / maxPrediction;
+                ConfidenceBar5.Width = (int)Math.Ceiling(ConfidenceBarBackground5.Width * proportion);
+                proportion = resultToShow[5].Item2 / maxPrediction;
+                ConfidenceBar6.Width = (int)Math.Ceiling(ConfidenceBarBackground6.Width * proportion);
+                proportion = resultToShow[6].Item2 / maxPrediction;
+                ConfidenceBar7.Width = (int)Math.Ceiling(ConfidenceBarBackground7.Width * proportion);
+                proportion = resultToShow[7].Item2 / maxPrediction;
+                ConfidenceBar8.Width = (int)Math.Ceiling(ConfidenceBarBackground8.Width * proportion);
+                proportion = resultToShow[8].Item2 / maxPrediction;
+                ConfidenceBar9.Width = (int)Math.Ceiling(ConfidenceBarBackground9.Width * proportion);
+                proportion = resultToShow[9].Item2 / maxPrediction;
+                ConfidenceBar10.Width = (int)Math.Ceiling(ConfidenceBarBackground10.Width * proportion);
+
+                MakeResultsVisible();
+            }
             InputTextBox.Clear();
         }
 

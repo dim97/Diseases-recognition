@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HttpRequestManager
 {
@@ -30,17 +31,27 @@ namespace HttpRequestManager
             }
 
             var response = (HttpWebResponse)request.GetResponse();
-            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            var result = JsonConvert.DeserializeObject<List<Dictionary<string,double>>>(responseString);
-            List<(string, double)> output = new List<(string, double)>();
-            foreach (var item in result)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
-                var key = (item.Keys).ToList()[0];
-                var value = (item.Values).ToList()[0];
-                output.Add((key, value));
-            }
+                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                var result = JsonConvert.DeserializeObject<List<Dictionary<string, double>>>(responseString);
+                List<(string, double)> output = new List<(string, double)>();
+                foreach (var item in result)
+                {
+                    var key = (item.Keys).ToList()[0];
+                    var value = (item.Values).ToList()[0];
+                    output.Add((key, value));
+                }
 
-            return output;
+                return output;
+            }
+            else
+            {
+                string message = "Server could not process your request.\nTry to use another input or just try again later";
+                string title = "Request error";
+                MessageBox.Show(message, title);
+                return null;
+            }
         }
     }
 }

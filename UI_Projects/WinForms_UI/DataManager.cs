@@ -21,9 +21,15 @@ namespace WinForms_UI
         {
             RequestManager requestManager = new RequestManager();
             List<(string, double)> result = requestManager.GetResponse(input);
-
-            var resultToShow = result.OrderByDescending(r => r.Item2).ToList();
-            return resultToShow;
+            if (result != null)
+            {
+                var resultToShow = result.OrderByDescending(r => r.Item2).ToList();
+                return resultToShow;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<Symptom> GetAllSymptoms()
