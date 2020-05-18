@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_UI", "WinForms_UI\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestManager", "RequestManager\RequestManager.csproj", "{EBFF5D95-462F-4A29-B757-E5D904211BCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryUMLS", "..\DictionaryUMLS\DictionaryUMLS\DictionaryUMLS.csproj", "{A2C53B84-A56E-4F14-B8C1-440A80028DCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EBFF5D95-462F-4A29-B757-E5D904211BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBFF5D95-462F-4A29-B757-E5D904211BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBFF5D95-462F-4A29-B757-E5D904211BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C53B84-A56E-4F14-B8C1-440A80028DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C53B84-A56E-4F14-B8C1-440A80028DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C53B84-A56E-4F14-B8C1-440A80028DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C53B84-A56E-4F14-B8C1-440A80028DCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
