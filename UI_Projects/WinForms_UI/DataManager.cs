@@ -60,7 +60,8 @@ namespace WinForms_UI
                 }
             }
 
-            return string.Empty;
+            //return string.Empty;
+            return "<Translation of this disease not found in database>";
         }
         public string TranslateDiseaseEngToUMLS(string input)
         {
