@@ -68,6 +68,7 @@
             this.ConfidenceBar10 = new System.Windows.Forms.Panel();
             this.Disease10Text = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.UpdateSympBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,7 +126,7 @@
             this.SymptomsListBox.FormattingEnabled = true;
             this.SymptomsListBox.Location = new System.Drawing.Point(12, 68);
             this.SymptomsListBox.Name = "SymptomsListBox";
-            this.SymptomsListBox.Size = new System.Drawing.Size(229, 247);
+            this.SymptomsListBox.Size = new System.Drawing.Size(229, 221);
             this.SymptomsListBox.TabIndex = 5;
             this.SymptomsListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.SymptomsListBox_MouseDoubleClick);
             // 
@@ -480,12 +481,28 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // UpdateSympBtn
+            // 
+            this.UpdateSympBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.UpdateSympBtn.FlatAppearance.BorderSize = 0;
+            this.UpdateSympBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateSympBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UpdateSympBtn.Location = new System.Drawing.Point(12, 292);
+            this.UpdateSympBtn.Name = "UpdateSympBtn";
+            this.UpdateSympBtn.Size = new System.Drawing.Size(229, 23);
+            this.UpdateSympBtn.TabIndex = 15;
+            this.UpdateSympBtn.Text = "Update symptom list";
+            this.UpdateSympBtn.UseVisualStyleBackColor = false;
+            this.UpdateSympBtn.Visible = false;
+            this.UpdateSympBtn.Click += new System.EventHandler(this.UpdateSympBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
             this.ClientSize = new System.Drawing.Size(725, 500);
+            this.Controls.Add(this.UpdateSympBtn);
             this.Controls.Add(this.Disease10Text);
             this.Controls.Add(this.Disease9Text);
             this.Controls.Add(this.Disease8Text);
@@ -575,6 +592,7 @@
         private System.Windows.Forms.Panel ConfidenceBar10;
         private System.Windows.Forms.TextBox Disease10Text;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button UpdateSympBtn;
     }
 }
 

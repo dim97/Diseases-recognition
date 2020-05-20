@@ -15,5 +15,6 @@ C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\WinForms_UI\obj\Debug\WinForms_U
 C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\WinForms_UI\obj\Debug\WinForms_UI.exe
 C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\WinForms_UI\obj\Debug\WinForms_UI.pdb
 C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\WinForms_UI\obj\Debug\WinForms_UI.MainForm.resources
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\WinForms_UI\bin\Debug\Resources\diseases.csv
-C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\WinForms_UI\bin\Debug\Resources\symptoms.csv
+C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\WinForms_UI\bin\Debug\CircularProgressBar.dll
+C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\WinForms_UI\bin\Debug\WinFormAnimation.dll
+C:\Users\Heron\Desktop\BAKA\PROJECT\UI_Projects\WinForms_UI\bin\Debug\CircularProgressBar.xml

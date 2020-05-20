@@ -34,6 +34,7 @@ namespace WinForms_UI
 
         private void PredictBtn_Click(object sender, EventArgs e)
         {
+            PredictBtn.Text = "Please wait"; 
             List<string> symptoms = InputSymptoms;
             InputSymptoms = new List<string>();
             var predictions = dataManager.GetSortedPredictions(symptoms);
@@ -41,17 +42,19 @@ namespace WinForms_UI
             if (predictions != null)
             {
                 List<(string, double)> resultToShow = predictions.Take(10).ToList();
+                List<string> predictedDiseasses = resultToShow.Select(d => d.Item1).ToList();
+                List<string> translatedDiseasses = dictUMLS.TranslateUmlsByUsingApi(predictedDiseasses);
 
-                Disease1Text.Text = resultToShow[0].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[0].Item1);
-                Disease2Text.Text = resultToShow[1].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[1].Item1);
-                Disease3Text.Text = resultToShow[2].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[2].Item1);
-                Disease4Text.Text = resultToShow[3].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[3].Item1);
-                Disease5Text.Text = resultToShow[4].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[4].Item1);
-                Disease6Text.Text = resultToShow[5].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[5].Item1);
-                Disease7Text.Text = resultToShow[6].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[6].Item1);
-                Disease8Text.Text = resultToShow[7].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[7].Item1);
-                Disease9Text.Text = resultToShow[8].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[8].Item1);
-                Disease10Text.Text = resultToShow[9].Item1 + " - " + dataManager.TranslateDiseasesUMLSToEng(resultToShow[9].Item1);
+                Disease1Text.Text = resultToShow[0].Item1 + " - " + translatedDiseasses[0];
+                Disease2Text.Text = resultToShow[1].Item1 + " - " + translatedDiseasses[1];
+                Disease3Text.Text = resultToShow[2].Item1 + " - " + translatedDiseasses[2];
+                Disease4Text.Text = resultToShow[3].Item1 + " - " + translatedDiseasses[3];
+                Disease5Text.Text = resultToShow[4].Item1 + " - " + translatedDiseasses[4];
+                Disease6Text.Text = resultToShow[5].Item1 + " - " + translatedDiseasses[5];
+                Disease7Text.Text = resultToShow[6].Item1 + " - " + translatedDiseasses[6];
+                Disease8Text.Text = resultToShow[7].Item1 + " - " + translatedDiseasses[7];
+                Disease9Text.Text = resultToShow[8].Item1 + " - " + translatedDiseasses[8];
+                Disease10Text.Text = resultToShow[9].Item1 + " - " + translatedDiseasses[9];
 
                 double maxPrediction = resultToShow.Max(x => x.Item2);
 
@@ -81,6 +84,7 @@ namespace WinForms_UI
                 MakeResultsVisible();
             }
             InputTextBox.Clear();
+            PredictBtn.Text = "Request prediction";
         }
 
         private void SymptomsListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -107,7 +111,7 @@ namespace WinForms_UI
 
             foreach (var symp in dataManager.GetAllSymptoms())
             {
-                if (symp.Eng.Contains(SearchTextBox.Text))
+                if (symp.Eng.ToUpper().Contains(SearchTextBox.Text.ToUpper()))
                 {
                     SymptomsListBox.Items.Add(symp);
                 }
@@ -151,6 +155,11 @@ namespace WinForms_UI
             Disease8Text.Visible = true;
             Disease9Text.Visible = true;
             Disease10Text.Visible = true;
+        }
+
+        private void UpdateSympBtn_Click(object sender, EventArgs e)
+        {
+            dictUMLS.UpdateSymptomsCsv();
         }
     }
 }
