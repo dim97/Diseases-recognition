@@ -6,3 +6,4 @@ C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\obj\Debug\Dict
 C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\obj\Debug\DictionaryUMLS.csproj.CopyComplete
+C:\Users\Heron\Desktop\BAKA\PROJECT\DictionaryUMLS\DictionaryUMLS\obj\Debug\DictionaryUMLS.csprojAssemblyReference.cache

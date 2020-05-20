@@ -34,6 +34,8 @@ namespace WinForms_UI
 
         private void PredictBtn_Click(object sender, EventArgs e)
         {
+            MakeResultsInvisible();
+
             PredictBtn.Text = "Please wait"; 
             List<string> symptoms = InputSymptoms;
             InputSymptoms = new List<string>();
@@ -155,6 +157,49 @@ namespace WinForms_UI
             Disease8Text.Visible = true;
             Disease9Text.Visible = true;
             Disease10Text.Visible = true;
+
+            this.Refresh();
+        }
+
+        private void MakeResultsInvisible()
+        {
+            label1.Visible = false;
+            pictureBox1.Visible = true;
+
+            ConfidenceBar1.Visible = false;
+            ConfidenceBar2.Visible = false;
+            ConfidenceBar3.Visible = false;
+            ConfidenceBar4.Visible = false;
+            ConfidenceBar5.Visible = false;
+            ConfidenceBar6.Visible = false;
+            ConfidenceBar7.Visible = false;
+            ConfidenceBar8.Visible = false;
+            ConfidenceBar9.Visible = false;
+            ConfidenceBar10.Visible = false;
+
+            ConfidenceBarBackground1.Visible = false;
+            ConfidenceBarBackground2.Visible = false;
+            ConfidenceBarBackground3.Visible = false;
+            ConfidenceBarBackground4.Visible = false;
+            ConfidenceBarBackground5.Visible = false;
+            ConfidenceBarBackground6.Visible = false;
+            ConfidenceBarBackground7.Visible = false;
+            ConfidenceBarBackground8.Visible = false;
+            ConfidenceBarBackground9.Visible = false;
+            ConfidenceBarBackground10.Visible = false;
+
+            Disease1Text.Visible = false;
+            Disease2Text.Visible = false;
+            Disease3Text.Visible = false;
+            Disease4Text.Visible = false;
+            Disease5Text.Visible = false;
+            Disease6Text.Visible = false;
+            Disease7Text.Visible = false;
+            Disease8Text.Visible = false;
+            Disease9Text.Visible = false;
+            Disease10Text.Visible = false;
+
+            this.Refresh();
         }
 
         private void UpdateSympBtn_Click(object sender, EventArgs e)

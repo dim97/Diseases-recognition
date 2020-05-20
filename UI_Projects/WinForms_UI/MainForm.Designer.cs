@@ -107,7 +107,7 @@
             // 
             // PredictBtn
             // 
-            this.PredictBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.PredictBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.PredictBtn.FlatAppearance.BorderSize = 0;
             this.PredictBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PredictBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -163,7 +163,7 @@
             // 
             // ConfidenceBar1
             // 
-            this.ConfidenceBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar1.Location = new System.Drawing.Point(260, 54);
             this.ConfidenceBar1.Name = "ConfidenceBar1";
             this.ConfidenceBar1.Size = new System.Drawing.Size(18, 20);
@@ -172,7 +172,7 @@
             // 
             // ConfidenceBar2
             // 
-            this.ConfidenceBar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar2.Location = new System.Drawing.Point(260, 98);
             this.ConfidenceBar2.Name = "ConfidenceBar2";
             this.ConfidenceBar2.Size = new System.Drawing.Size(18, 20);
@@ -181,7 +181,7 @@
             // 
             // ConfidenceBar3
             // 
-            this.ConfidenceBar3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar3.Location = new System.Drawing.Point(260, 144);
             this.ConfidenceBar3.Name = "ConfidenceBar3";
             this.ConfidenceBar3.Size = new System.Drawing.Size(18, 20);
@@ -190,7 +190,7 @@
             // 
             // ConfidenceBar4
             // 
-            this.ConfidenceBar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar4.Location = new System.Drawing.Point(260, 190);
             this.ConfidenceBar4.Name = "ConfidenceBar4";
             this.ConfidenceBar4.Size = new System.Drawing.Size(18, 20);
@@ -199,7 +199,7 @@
             // 
             // ConfidenceBar5
             // 
-            this.ConfidenceBar5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar5.Location = new System.Drawing.Point(260, 236);
             this.ConfidenceBar5.Name = "ConfidenceBar5";
             this.ConfidenceBar5.Size = new System.Drawing.Size(18, 20);
@@ -208,7 +208,7 @@
             // 
             // ConfidenceBarBackground1
             // 
-            this.ConfidenceBarBackground1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground1.Location = new System.Drawing.Point(260, 54);
             this.ConfidenceBarBackground1.Name = "ConfidenceBarBackground1";
             this.ConfidenceBarBackground1.Size = new System.Drawing.Size(457, 20);
@@ -217,7 +217,7 @@
             // 
             // ConfidenceBarBackground2
             // 
-            this.ConfidenceBarBackground2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground2.Location = new System.Drawing.Point(260, 98);
             this.ConfidenceBarBackground2.Name = "ConfidenceBarBackground2";
             this.ConfidenceBarBackground2.Size = new System.Drawing.Size(457, 20);
@@ -226,7 +226,7 @@
             // 
             // ConfidenceBarBackground3
             // 
-            this.ConfidenceBarBackground3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground3.Location = new System.Drawing.Point(260, 144);
             this.ConfidenceBarBackground3.Name = "ConfidenceBarBackground3";
             this.ConfidenceBarBackground3.Size = new System.Drawing.Size(457, 20);
@@ -235,7 +235,7 @@
             // 
             // ConfidenceBarBackground4
             // 
-            this.ConfidenceBarBackground4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground4.Location = new System.Drawing.Point(260, 190);
             this.ConfidenceBarBackground4.Name = "ConfidenceBarBackground4";
             this.ConfidenceBarBackground4.Size = new System.Drawing.Size(457, 20);
@@ -244,7 +244,7 @@
             // 
             // ConfidenceBarBackground5
             // 
-            this.ConfidenceBarBackground5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground5.Location = new System.Drawing.Point(260, 236);
             this.ConfidenceBarBackground5.Name = "ConfidenceBarBackground5";
             this.ConfidenceBarBackground5.Size = new System.Drawing.Size(457, 20);
@@ -253,7 +253,7 @@
             // 
             // Disease1Text
             // 
-            this.Disease1Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease1Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease1Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease1Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease1Text.Location = new System.Drawing.Point(260, 37);
@@ -266,7 +266,7 @@
             // 
             // Disease2Text
             // 
-            this.Disease2Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease2Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease2Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease2Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease2Text.Location = new System.Drawing.Point(260, 80);
@@ -279,7 +279,7 @@
             // 
             // Disease3Text
             // 
-            this.Disease3Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease3Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease3Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease3Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease3Text.Location = new System.Drawing.Point(260, 124);
@@ -292,7 +292,7 @@
             // 
             // Disease4Text
             // 
-            this.Disease4Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease4Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease4Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease4Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease4Text.Location = new System.Drawing.Point(260, 170);
@@ -305,7 +305,7 @@
             // 
             // Disease5Text
             // 
-            this.Disease5Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease5Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease5Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease5Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease5Text.Location = new System.Drawing.Point(260, 216);
@@ -318,7 +318,7 @@
             // 
             // ConfidenceBarBackground6
             // 
-            this.ConfidenceBarBackground6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground6.Location = new System.Drawing.Point(260, 282);
             this.ConfidenceBarBackground6.Name = "ConfidenceBarBackground6";
             this.ConfidenceBarBackground6.Size = new System.Drawing.Size(457, 20);
@@ -327,7 +327,7 @@
             // 
             // ConfidenceBar6
             // 
-            this.ConfidenceBar6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar6.Location = new System.Drawing.Point(260, 282);
             this.ConfidenceBar6.Name = "ConfidenceBar6";
             this.ConfidenceBar6.Size = new System.Drawing.Size(18, 20);
@@ -336,7 +336,7 @@
             // 
             // Disease6Text
             // 
-            this.Disease6Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease6Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease6Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease6Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease6Text.Location = new System.Drawing.Point(260, 262);
@@ -349,7 +349,7 @@
             // 
             // ConfidenceBarBackground7
             // 
-            this.ConfidenceBarBackground7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground7.Location = new System.Drawing.Point(260, 328);
             this.ConfidenceBarBackground7.Name = "ConfidenceBarBackground7";
             this.ConfidenceBarBackground7.Size = new System.Drawing.Size(457, 20);
@@ -358,7 +358,7 @@
             // 
             // ConfidenceBar7
             // 
-            this.ConfidenceBar7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar7.Location = new System.Drawing.Point(260, 328);
             this.ConfidenceBar7.Name = "ConfidenceBar7";
             this.ConfidenceBar7.Size = new System.Drawing.Size(18, 20);
@@ -367,7 +367,7 @@
             // 
             // Disease7Text
             // 
-            this.Disease7Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease7Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease7Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease7Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease7Text.Location = new System.Drawing.Point(260, 308);
@@ -380,7 +380,7 @@
             // 
             // ConfidenceBarBackground8
             // 
-            this.ConfidenceBarBackground8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground8.Location = new System.Drawing.Point(259, 374);
             this.ConfidenceBarBackground8.Name = "ConfidenceBarBackground8";
             this.ConfidenceBarBackground8.Size = new System.Drawing.Size(457, 20);
@@ -389,7 +389,7 @@
             // 
             // ConfidenceBar8
             // 
-            this.ConfidenceBar8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar8.Location = new System.Drawing.Point(259, 374);
             this.ConfidenceBar8.Name = "ConfidenceBar8";
             this.ConfidenceBar8.Size = new System.Drawing.Size(18, 20);
@@ -398,7 +398,7 @@
             // 
             // Disease8Text
             // 
-            this.Disease8Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease8Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease8Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease8Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease8Text.Location = new System.Drawing.Point(259, 354);
@@ -411,7 +411,7 @@
             // 
             // ConfidenceBarBackground9
             // 
-            this.ConfidenceBarBackground9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground9.Location = new System.Drawing.Point(259, 420);
             this.ConfidenceBarBackground9.Name = "ConfidenceBarBackground9";
             this.ConfidenceBarBackground9.Size = new System.Drawing.Size(457, 20);
@@ -420,7 +420,7 @@
             // 
             // ConfidenceBar9
             // 
-            this.ConfidenceBar9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar9.Location = new System.Drawing.Point(259, 420);
             this.ConfidenceBar9.Name = "ConfidenceBar9";
             this.ConfidenceBar9.Size = new System.Drawing.Size(18, 20);
@@ -429,7 +429,7 @@
             // 
             // Disease9Text
             // 
-            this.Disease9Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease9Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease9Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease9Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease9Text.Location = new System.Drawing.Point(259, 400);
@@ -442,7 +442,7 @@
             // 
             // ConfidenceBarBackground10
             // 
-            this.ConfidenceBarBackground10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(129)))), ((int)(((byte)(93)))));
+            this.ConfidenceBarBackground10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(37)))));
             this.ConfidenceBarBackground10.Location = new System.Drawing.Point(259, 466);
             this.ConfidenceBarBackground10.Name = "ConfidenceBarBackground10";
             this.ConfidenceBarBackground10.Size = new System.Drawing.Size(457, 20);
@@ -451,7 +451,7 @@
             // 
             // ConfidenceBar10
             // 
-            this.ConfidenceBar10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.ConfidenceBar10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.ConfidenceBar10.Location = new System.Drawing.Point(259, 466);
             this.ConfidenceBar10.Name = "ConfidenceBar10";
             this.ConfidenceBar10.Size = new System.Drawing.Size(18, 20);
@@ -460,7 +460,7 @@
             // 
             // Disease10Text
             // 
-            this.Disease10Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.Disease10Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.Disease10Text.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Disease10Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Disease10Text.Location = new System.Drawing.Point(259, 446);
@@ -473,6 +473,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(259, 31);
@@ -483,7 +484,7 @@
             // 
             // UpdateSympBtn
             // 
-            this.UpdateSympBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(64)))));
+            this.UpdateSympBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(64)))));
             this.UpdateSympBtn.FlatAppearance.BorderSize = 0;
             this.UpdateSympBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpdateSympBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -500,7 +501,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(214)))), ((int)(((byte)(169)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(222)))), ((int)(((byte)(106)))));
             this.ClientSize = new System.Drawing.Size(725, 500);
             this.Controls.Add(this.UpdateSympBtn);
             this.Controls.Add(this.Disease10Text);
